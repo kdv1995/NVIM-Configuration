@@ -115,4 +115,17 @@ return packer.startup(function(use)
 
 	--iluminate
 	use({ "RRethy/vim-illuminate" })
+
+	--BDelete
+	-- use("famiu/bufdelete.nvim")
+	use({ "ojroques/nvim-bufdel" })
+
+	--Auto pairs
+	use({
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	})
 end)

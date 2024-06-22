@@ -34,7 +34,7 @@ nvim_tree.setup({
 		sorter = "case_sensitive",
 	},
 	view = {
-		adaptive_size = false,
+		adaptive_size = true,
 		side = "left",
 		width = 30,
 		preserve_window_proportions = true,

@@ -81,3 +81,14 @@ lspconfig.solidity_ls_nomicfoundation.setup({
 	end,
 	on_capabilities = capabilities,
 })
+
+lspconfig.emmet_language_server.setup({
+	on_attach = function(_, bufnr)
+		lsp_keymap(bufnr)
+	end,
+	on_capabilities = capabilities,
+})
+
+lspconfig.cssls.setup({
+	capabilities = capabilities,
+})

@@ -95,7 +95,7 @@ cmp.setup({
       end
     end, { 'i', 's' }),
 
-    ['<Tab>'] = cmp.mapping(function(fallback)
+    ['<S-j>'] = cmp.mapping(function(fallback)
       local col = vim.fn.col('.') - 1
 
       if cmp.visible() then
@@ -107,7 +107,7 @@ cmp.setup({
       end
     end, { 'i', 's' }),
 
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ['<S-k>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item(select_opts)
       else
