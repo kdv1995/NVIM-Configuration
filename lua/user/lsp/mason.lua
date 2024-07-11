@@ -90,5 +90,15 @@ lspconfig.emmet_language_server.setup({
 })
 
 lspconfig.cssls.setup({
+	on_attach = function(_, bufnr)
+		lsp_keymap(bufnr)
+	end,
+	capabilities = capabilities,
+})
+
+lspconfig.jsonls.setup({
+	on_attach = function(_, bufnr)
+		lsp_keymap(bufnr)
+	end,
 	capabilities = capabilities,
 })
