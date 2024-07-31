@@ -44,7 +44,6 @@ return packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-	use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", cmd = "MarkdownPreview" })
 
 	-- Post-install/update hook with neovim command
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

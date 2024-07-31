@@ -1,0 +1,43 @@
+# Ignore swap files
+*.swp
+*.swo
+
+# Ignore backup files
+*.bak
+*.tmp
+
+# Ignore undo files
+*.un~
+
+# Ignore session files
+Session.vim
+Session.*
+
+# Ignore tags files
+tags
+*.tags
+
+# Ignore plugin specific files and directories
+plugged/
+site/
+pack/
+
+# Ignore compiled files from Vimscript or Lua
+*.pyc
+*.class
+*.o
+*.so
+
+# Ignore logs and other generated files
+log/
+*.log
+node_modules/
+dist/
+
+# Ignore specific Neovim configuration files (if not version controlled)
+init.vim
+init.lua
+
+# Ignore packer compiled file
+plugin/packer_compiled.lua
+

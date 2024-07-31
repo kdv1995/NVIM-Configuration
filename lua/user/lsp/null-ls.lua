@@ -11,12 +11,12 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = true,
   sources = {
-    formatting.prettier,
+    -- formatting.prettier,
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
     diagnostics.flake8,
-    formatting.prettier.with({
-      extra_filetypes = { "solidity" },
-    }),
+    -- formatting.prettier.with({
+    --   extra_filetypes = { "solidity" },
+    -- }),
   },
 })

@@ -102,3 +102,18 @@ lspconfig.jsonls.setup({
 	end,
 	capabilities = capabilities,
 })
+
+lspconfig.css_variables.setup({
+	{
+		on_attach = function(_, bufnr)
+			lsp_keymap(bufnr)
+		end,
+		capabilities = capabilities,
+	},
+})
+lspconfig.bashls.setup({
+	on_attach = function(_, bufnr)
+		lsp_keymap(bufnr)
+	end,
+	on_capabilities = capabilities,
+})
