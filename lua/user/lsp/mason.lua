@@ -2,9 +2,9 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lsp_config = require("mason-lspconfig")
 mason.setup()
-mason_lsp_config.setup({
-	ensure_installed = { "tsserver" },
-})
+mason_lsp_config.setup(
+
+)
 
 local signs = {
 
