@@ -183,8 +183,10 @@ vim.keymap.set("n", "<leader>os", "<cmd>ChatGPT summarize<cr>", { desc = "Summar
 vim.keymap.set("n", "<leader>of", "<cmd>ChatGPT fix_bugs<cr>", { desc = "Fix bugs with ChatGPT" })
 vim.keymap.set("n", "<leader>oe", "<cmd>ChatGPT explain_code<cr>", { desc = "Explain code with ChatGPT" })
 
--- Delete the current buffer
-vim.keymap.set("n", "<leader>d", ":bd! <CR>", { silent = true })
+-- Buf deletion
+vim.keymap.set("n", "<leader>d", "<cmd>:BufDel<CR>", { desc = "Delete Buffer" })
 
--- Delete the current buffer and ignore changes
-vim.keymap.set("n", "<leader>di", ":bd!<CR>", { silent = true })
+require("bufdel").setup({
+	next = "tabs",
+	quit = false, -- quit Neovim when last buffer is closed
+})

@@ -117,4 +117,5 @@ return packer.startup(function(use)
 			require("nvim-autopairs").setup({})
 		end,
 	})
+	use({ "ojroques/nvim-bufdel" })
 end)
