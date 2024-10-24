@@ -44,7 +44,6 @@ return packer.startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
-
 	-- Post-install/update hook with neovim command
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
@@ -86,7 +85,6 @@ return packer.startup(function(use)
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
-
 	--Autotag
 	use({
 		"windwp/nvim-ts-autotag",
@@ -96,7 +94,6 @@ return packer.startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
-		-- or                            , branch = '0.1.x',
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
@@ -112,10 +109,6 @@ return packer.startup(function(use)
 	--iluminate
 	use({ "RRethy/vim-illuminate" })
 
-	--BDelete
-	-- use("famiu/bufdelete.nvim")
-	use({ "ojroques/nvim-bufdel" })
-
 	--Auto pairs
 	use({
 		"windwp/nvim-autopairs",
@@ -123,15 +116,5 @@ return packer.startup(function(use)
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
-
-		use({
-			"Pocco81/auto-save.nvim",
-			config = function()
-				require("auto-save").setup({
-					-- your config goes here
-					-- or just leave it empty :)
-				})
-			end,
-		}),
 	})
 end)
