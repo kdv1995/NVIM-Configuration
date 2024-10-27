@@ -2,12 +2,37 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lsp_config = require("mason-lspconfig")
 mason.setup()
-mason_lsp_config.setup(
+mason_lsp_config.setup()
 
-)
+-- Function to show diagnostics automatically
+local function lsp_diagnostics_autocmd()
+	vim.diagnostic.config({
+		virtual_text = true, -- Show diagnostics as virtual text
+		signs = true, -- Show signs in the gutter
+		underline = true, -- Underline diagnostics in the text
+		update_in_insert = false, -- Don't show diagnostics in insert mode
+	})
+
+	-- Create autocommands for displaying diagnostics
+	vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold" }, {
+		pattern = { "*" },
+		callback = function()
+			vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
+		end,
+	})
+end
+
+-- Attach diagnostics function to LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client then
+			lsp_diagnostics_autocmd()
+		end
+	end,
+})
 
 local signs = {
-
 	{ name = "DiagnosticSignError", text = "" },
 	{ name = "DiagnosticSignWarn", text = "" },
 	{ name = "DiagnosticSignHint", text = "" },
