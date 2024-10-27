@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
+local telescope_builtin = require("telescope.builtin")
 
 -- Shorten function name
 local keymap = vim.keymap.set
@@ -51,17 +52,17 @@ keymap("v", "<", "<gv^", opts)
 keymap("v", ">", ">gv^", opts)
 
 -- Move text up and down
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
-keymap("v", "p", '"_dP', opts)
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+-- keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+-- keymap("v", "p", '"_dP', opts)
+-- keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 
 -- Visual Block --
 -- Move text up and down
--- keymap("x", "j", ":m '>+1<cr>gv=gv", opts)
 -- keymap("x", "K", ":m '<-2<CR>gv=gv", opts)
 -- keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 -- keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
+keymap("x", "j", ":m '>+1<cr>gv=gv", opts)
 -- Terminal --
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
@@ -72,12 +73,13 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 vim.keymap.set("n", "<leader>a", "<cmd>Alpha<cr>", { desc = "Alpha" })
 
 -- Telescope Buffers with dropdown, no preview
-vim.keymap.set(
-	"n",
-	"<leader>b",
-	"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	{ desc = "Buffers" }
-)
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers, { desc = "Telescope buffers" })
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep, { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>fm", telescope_builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>fq", telescope_builtin.quickfix, { desc = "Telescope lsp document symbols" })
+
 
 -- NvimTree file explorer toggle
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Explorer" })
@@ -91,30 +93,11 @@ vim.keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit" })
 -- Remove search highlighting
 vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "No Highlight" })
 
--- Find files with Telescope dropdown, no preview
-vim.keymap.set(
-	"n",
-	"<leader>f",
-	"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-	{ desc = "Find Files" }
-)
-
--- Find text with Telescope live grep in Ivy theme
-vim.keymap.set("n", "<leader>F", "<cmd>Telescope live_grep theme=ivy<cr>", { desc = "Find Text" })
-
--- Open Telescope Projects extension
-vim.keymap.set(
-	"n",
-	"<leader>P",
-	"<cmd>lua require('telescope').extensions.projects.projects()<cr>",
-	{ desc = "Projects" }
-)
-
 -- Packer commands
 vim.keymap.set("n", "<leader>pc", "<cmd>PackerCompile<cr>", { desc = "Packer Compile" })
 vim.keymap.set("n", "<leader>pi", "<cmd>PackerInstall<cr>", { desc = "Packer Install" })
 vim.keymap.set("n", "<leader>ps", "<cmd>PackerSync<cr>", { desc = "Packer Sync" })
-vim.keymap.set("n", "<leader>pS", "<cmd>PackerStatus<cr>", { desc = "Packer Status" })
+vim.keymap.set("n", "<leader>pS", "<cmd>PackerStatus<cr>", { desc = "Peacker Status" })
 vim.keymap.set("n", "<leader>pu", "<cmd>PackerUpdate<cr>", { desc = "Packer Update" })
 
 -- Git commands with Gitsigns and Telescope
@@ -128,12 +111,12 @@ vim.keymap.set("n", "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<cr
 vim.keymap.set("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", { desc = "Stage Hunk" })
 vim.keymap.set("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", { desc = "Undo Stage Hunk" })
 
-vim.keymap.set("n", "<leader>go", "<cmd>Telescope git_status<cr>", { desc = "Open Changed File" })
-vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout Branch" })
-
-vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Checkout Commit" })
-
-vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", { desc = "Diff" })
+-- vim.keymap.set("n", "<leader>go", "<cmd>Telescope git_status<cr>", { desc = "Open Changed File" })
+-- vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout Branch" })
+--
+-- vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", { desc = "Checkout Commit" })
+--
+-- vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>", { desc = "Diff" })
 
 -- LSP commands
 vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action" })
@@ -150,16 +133,6 @@ vim.keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", { d
 vim.keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", { desc = "Workspace Symbols" })
 vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", { desc = "Format Document" })
 
--- Search commands using Telescope
-vim.keymap.set("n", "<leader>sb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout Branch" })
-vim.keymap.set("n", "<leader>sc", "<cmd>Telescope colorscheme<cr>", { desc = "Colorscheme" })
-vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", { desc = "Find Help" })
-vim.keymap.set("n", "<leader>sM", "<cmd>Telescope man_pages<cr>", { desc = "Man Pages" })
-vim.keymap.set("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>", { desc = "Open Recent File" })
-vim.keymap.set("n", "<leader>sR", "<cmd>Telescope registers<cr>", { desc = "Registers" })
-vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
-vim.keymap.set("n", "<leader>sC", "<cmd>Telescope commands<cr>", { desc = "Commands" })
-
 -- Terminal commands
 vim.keymap.set("n", "<leader>tn", "<cmd>lua _NODE_TOGGLE()<cr>", { desc = "Node" })
 vim.keymap.set("n", "<leader>tu", "<cmd>lua _NCDU_TOGGLE()<cr>", { desc = "NCDU" })
@@ -169,20 +142,6 @@ vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", { desc 
 vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", { desc = "Horizontal" })
 vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", { desc = "Vertical" })
 
--- OpenAI (ChatGPT integration) commands
-vim.keymap.set("n", "<leader>oi", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Edit with instructions" })
-vim.keymap.set("n", "<leader>og", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
-vim.keymap.set("n", "<leader>oa", "<cmd>ChatGPTActAs<cr>", { desc = "ChatGPT Prompts" })
-vim.keymap.set("n", "<leader>oc", "<cmd>ChatGPTCompleteCode<cr>", { desc = "Code Completion" })
-vim.keymap.set("n", "<leader>ot", "<cmd>ChatGPT translate<cr>", { desc = "Translate with ChatGPT" })
-vim.keymap.set("n", "<leader>ok", "<cmd>ChatGPT keywords<cr>", { desc = "Keywords with ChatGPT" })
-vim.keymap.set("n", "<leader>od", "<cmd>ChatGPT docstring<cr>", { desc = "Docstring with ChatGPT" })
-vim.keymap.set("n", "<leader>ou", "<cmd>ChatGPT add_tests<cr>", { desc = "Add tests with ChatGPT" })
-vim.keymap.set("n", "<leader>oo", "<cmd>ChatGPT optimize_code<cr>", { desc = "Optimize code with ChatGPT" })
-vim.keymap.set("n", "<leader>os", "<cmd>ChatGPT summarize<cr>", { desc = "Summarize with ChatGPT" })
-vim.keymap.set("n", "<leader>of", "<cmd>ChatGPT fix_bugs<cr>", { desc = "Fix bugs with ChatGPT" })
-vim.keymap.set("n", "<leader>oe", "<cmd>ChatGPT explain_code<cr>", { desc = "Explain code with ChatGPT" })
-
 -- Buf deletion
 vim.keymap.set("n", "<leader>d", "<cmd>:BufDel<CR>", { desc = "Delete Buffer" })
 
@@ -190,3 +149,29 @@ require("bufdel").setup({
 	next = "tabs",
 	quit = false, -- quit Neovim when last buffer is closed
 })
+
+-- OpenAI (ChatGPT integration) commands
+-- vim.keymap.set("n", "<leader>oi", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Edit with instructions" })
+-- vim.keymap.set("n", "<leader>og", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
+-- vim.keymap.set("n", "<leader>oa", "<cmd>ChatGPTActAs<cr>", { desc = "ChatGPT Prompts" })
+-- vim.keymap.set("n", "<leader>oc", "<cmd>ChatGPTCompleteCode<cr>", { desc = "Code Completion" })
+-- vim.keymap.set("n", "<leader>ot", "<cmd>ChatGPT translate<cr>", { desc = "Translate with ChatGPT" })
+-- vim.keymap.set("n", "<leader>ok", "<cmd>ChatGPT keywords<cr>", { desc = "Keywords with ChatGPT" })
+-- vim.keymap.set("n", "<leader>od", "<cmd>ChatGPT docstring<cr>", { desc = "Docstring with ChatGPT" })
+-- vim.keymap.set("n", "<leader>ou", "<cmd>ChatGPT add_tests<cr>", { desc = "Add tests with ChatGPT" })
+-- vim.keymap.set("n", "<leader>oo", "<cmd>ChatGPT optimize_code<cr>", { desc = "Optimize code with ChatGPT" })
+-- vim.keymap.set("n", "<leader>os", "<cmd>ChatGPT summarize<cr>", { desc = "Summarize with ChatGPT" })
+-- vim.keymap.set("n", "<leader>of", "<cmd>ChatGPT fix_bugs<cr>", { desc = "Fix bugs with ChatGPT" })
+-- vim.keymap.set("n", "<leader>oe", "<cmd>ChatGPT explain_code<cr>", { desc = "Explain code with ChatGPT" })
+--
+--
+--
+---- Search commands using Telescope
+-- vim.keymap.set("n", "<leader>sb", "<cmd>Telescope git_branches<cr>", { desc = "Checkout Branch" })
+-- vim.keymap.set("n", "<leader>sc", "<cmd>Telescope colorscheme<cr>", { desc = "Colorscheme" })
+-- vim.keymap.set("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", { desc = "Find Help" })
+-- vim.keymap.set("n", "<leader>sM", "<cmd>Telescope man_pages<cr>", { desc = "Man Pages" })
+-- vim.keymap.set("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>", { desc = "Open Recent File" })
+-- vim.keymap.set("n", "<leader>sR", "<cmd>Telescope registers<cr>", { desc = "Registers" })
+-- vim.keymap.set("n", "<leader>sk", "<cmd>Telescope keymaps<cr>", { desc = "Keymaps" })
+-- vim.keymap.set("n", "<leader>sC", "<cmd>Telescope commands<cr>", { desc = "Commands" })
