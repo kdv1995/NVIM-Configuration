@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/user/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/user/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/user/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -141,6 +146,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/user/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-bufdel"] = {
+    loaded = true,
+    path = "/Users/user/.local/share/nvim/site/pack/packer/start/nvim-bufdel",
+    url = "https://github.com/ojroques/nvim-bufdel"
   },
   ["nvim-cmp"] = {
     loaded = true,
