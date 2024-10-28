@@ -38,6 +38,6 @@ dist/
 init.vim
 init.lua
 
-# Ignore packer compiled file
-plugin/packer_compiled.lua
 
+# Ignore packer compiled file
+plugin/*
