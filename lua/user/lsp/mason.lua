@@ -86,7 +86,7 @@ local function lsp_keymap(bufnr)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 end
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	on_attach = function(_, bufnr)
 		lsp_keymap(bufnr)
 	end,
