@@ -1,5 +1,3 @@
 require("user.lsp.mason")
--- require("user.lsp.solidity")
-require("user.lsp.lua_ls")
 require("user.lsp.null-ls")
-require("user.lsp.tailwind")
+require("user.lsp.prettier")
