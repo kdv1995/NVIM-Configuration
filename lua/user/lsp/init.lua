@@ -1,3 +1,3 @@
 require("user.lsp.mason")
 require("user.lsp.null-ls")
-require("user.lsp.prettier")
+vim.cmd("language en_US")
