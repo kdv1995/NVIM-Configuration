@@ -65,7 +65,12 @@ lspconfig.ts_ls.setup({
 	on_capabilities = capabilities,
 })
 
-lspconfig.solidity_ls.setup({})
+lspconfig.solidity_ls.setup({
+	on_attach = function(_, bufnr)
+		lsp_keymap(bufnr)
+	end,
+	on_capabilities = capabilities,
+})
 
 lspconfig.emmet_language_server.setup({
 	on_attach = function(_, bufnr)
@@ -86,15 +91,6 @@ lspconfig.cssls.setup({
 -- 		lsp_keymap(bufnr)
 -- 	end,
 -- 	capabilities = capabilities,
--- })
-
--- lspconfig.css_variables.setup({
---   {
---     on_attach = function(_, bufnr)
---       lsp_keymap(bufnr)
---     end,
---     capabilities = capabilities,
---   },
 -- })
 
 lspconfig.bashls.setup({
@@ -118,12 +114,7 @@ lspconfig.tailwindcss.setup({
 	on_capabilities = capabilities,
 })
 
-require("lspconfig").dockerls.setup({})
-require("lspconfig").docker_compose_language_service.setup({})
+lspconfig.dockerls.setup({})
+lspconfig.docker_compose_language_service.setup({})
 
--- lspconfig.sqls.setup({
---   on_attach = function(_, bufnr)
---     lsp_keymap(bufnr)
---   end,
---   on_capabilities = capabilities,
--- })
+lspconfig.yamlls.setup({})

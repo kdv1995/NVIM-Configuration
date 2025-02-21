@@ -84,6 +84,8 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 vim.keymap.set("n", "<leader>f", telescope_builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>F", telescope_builtin.live_grep, { desc = "Telescope live grep" })
+
+vim.keymap.set("n", "<leader>fo", telescope_builtin.vim_options, { desc = "Lists vim options" })
 -- vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
 -- vim.keymap.set("n", "<leader>fq", telescope_builtin.quickfix, { desc = "Telescope lsp document symbols" })
 -- vim.keymap.set("n", "<leader>to", telescope_builtin.vim_options, { desc = "Telescope global variable options" })
@@ -92,6 +94,10 @@ vim.keymap.set("n", "<leader>gb", telescope_builtin.git_branches, { desc = "Tele
 vim.keymap.set("n", "<leader>gs", telescope_builtin.git_status, { desc = "Telescope git status" })
 -- vim.keymap.set("n", "<leader>tl", telescope_builtin.git_stash, { desc = "Telescope git stash" })
 vim.keymap.set("n", "<leader>fm", telescope_builtin.man_pages, { desc = "Man Pages" })
+vim.keymap.set("n", "<leader>cs", telescope_builtin.colorscheme, { desc = "Colorscheme" })
+vim.keymap.set("n", "<leader>fr", telescope_builtin.registers, { desc = "List the registers" })
+
+
 -- vim.keymap.set("n", "<leader>fc", telescope_builtin.commands, { desc = "Telescope list of commands" })
 
 -- Packer commands
@@ -138,8 +144,8 @@ vim.keymap.set("n", "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr
 vim.keymap.set("n", "<leader>d", "<cmd>:BufDel<CR>", { desc = "Delete Buffer" })
 
 require("bufdel").setup({
-	next = "tabs",
-	quit = false, -- quit Neovim when last buffer is closed
+  next = "tabs",
+  quit = false, -- quit Neovim when last buffer is closed
 })
 
 -- OpenAI (ChatGPT integration) commands
