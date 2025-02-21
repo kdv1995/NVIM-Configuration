@@ -86,8 +86,8 @@ vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, { desc = "Telescope 
 vim.keymap.set("n", "<leader>F", telescope_builtin.live_grep, { desc = "Telescope live grep" })
 
 vim.keymap.set("n", "<leader>fo", telescope_builtin.vim_options, { desc = "Lists vim options" })
--- vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
--- vim.keymap.set("n", "<leader>fq", telescope_builtin.quickfix, { desc = "Telescope lsp document symbols" })
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>fq", telescope_builtin.quickfix, { desc = "Telescope lsp document symbols" })
 -- vim.keymap.set("n", "<leader>to", telescope_builtin.vim_options, { desc = "Telescope global variable options" })
 vim.keymap.set("n", "<leader>gc", telescope_builtin.git_commits, { desc = "Telescope git commits" })
 vim.keymap.set("n", "<leader>gb", telescope_builtin.git_branches, { desc = "Telescope git branches" })
