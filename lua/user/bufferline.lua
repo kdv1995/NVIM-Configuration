@@ -5,7 +5,7 @@ end
 
 bufferline.setup({
 	options = {
-		numbers = "both", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
 		-- NOTE: this plugin is designed with this icon in mind,
 		-- and so changing this is NOT recommended, this is intended
 		-- as an escape hatch for people who cannot bear it for whatever reason
@@ -26,7 +26,7 @@ bufferline.setup({
 		--     return vim.fn.fnamemodify(buf.name, ':t:r')
 		--   end
 		-- end,
-		max_name_length = 50,
+		max_name_length = 30,
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,
 		diagnostics = false, -- | "nvim_lsp" | "coc",
@@ -128,6 +128,7 @@ bufferline.setup({
 			bg = { attribute = "bg", highlight = "TabLine" },
 			underline = true,
 		},
+
 		modified = {
 			fg = { attribute = "fg", highlight = "TabLine" },
 			bg = { attribute = "bg", highlight = "TabLine" },
