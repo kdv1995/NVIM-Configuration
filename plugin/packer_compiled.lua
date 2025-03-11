@@ -80,7 +80,7 @@ _G.packer_plugins = {
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["auto-save.nvim"] = {
-    config = { "\27LJ\2\n÷\2\0\0\6\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\3\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\0045\5\t\0=\5\n\4=\4\v\3>\3\1\2B\0\2\1K\0\1\0\19trigger_events\25cancel_deferred_save\1\2\0\0\16InsertEnter\15defer_save\1\3\0\0\16InsertLeave\16TextChanged\19immediate_save\1\0\3\19immediate_save\0\15defer_save\0\25cancel_deferred_save\0\1\3\0\0\rBufLeave\14FocusLost\1\0\a\19debounce_delay\3è\a\14lockmarks\1\14noautocmd\1\22write_all_buffers\1\19trigger_events\0\fenabled\2\ndebug\1\nsetup\14auto-save\frequire\0" },
+    config = { "\27LJ\2\n÷\2\0\0\6\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\3\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\0045\5\t\0=\5\n\4=\4\v\3>\3\1\2B\0\2\1K\0\1\0\19trigger_events\25cancel_deferred_save\1\2\0\0\16InsertEnter\15defer_save\1\3\0\0\16InsertLeave\16TextChanged\19immediate_save\1\0\3\25cancel_deferred_save\0\19immediate_save\0\15defer_save\0\1\3\0\0\rBufLeave\14FocusLost\1\0\a\14lockmarks\1\14noautocmd\1\22write_all_buffers\1\19trigger_events\0\fenabled\2\ndebug\1\19debounce_delay\3è\a\nsetup\14auto-save\frequire\0" },
     loaded = true,
     path = "/Users/user/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
     url = "https://github.com/okuuva/auto-save.nvim"
@@ -228,7 +228,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: auto-save.nvim
 time([[Config for auto-save.nvim]], true)
-try_loadstring("\27LJ\2\n÷\2\0\0\6\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\3\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\0045\5\t\0=\5\n\4=\4\v\3>\3\1\2B\0\2\1K\0\1\0\19trigger_events\25cancel_deferred_save\1\2\0\0\16InsertEnter\15defer_save\1\3\0\0\16InsertLeave\16TextChanged\19immediate_save\1\0\3\19immediate_save\0\15defer_save\0\25cancel_deferred_save\0\1\3\0\0\rBufLeave\14FocusLost\1\0\a\19debounce_delay\3è\a\14lockmarks\1\14noautocmd\1\22write_all_buffers\1\19trigger_events\0\fenabled\2\ndebug\1\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")
+try_loadstring("\27LJ\2\n÷\2\0\0\6\0\f\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\3\0005\3\3\0005\4\5\0005\5\4\0=\5\6\0045\5\a\0=\5\b\0045\5\t\0=\5\n\4=\4\v\3>\3\1\2B\0\2\1K\0\1\0\19trigger_events\25cancel_deferred_save\1\2\0\0\16InsertEnter\15defer_save\1\3\0\0\16InsertLeave\16TextChanged\19immediate_save\1\0\3\25cancel_deferred_save\0\19immediate_save\0\15defer_save\0\1\3\0\0\rBufLeave\14FocusLost\1\0\a\14lockmarks\1\14noautocmd\1\22write_all_buffers\1\19trigger_events\0\fenabled\2\ndebug\1\19debounce_delay\3è\a\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")
 time([[Config for auto-save.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

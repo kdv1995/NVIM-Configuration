@@ -2,22 +2,7 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lsp_config = require("mason-lspconfig")
 mason.setup()
-mason_lsp_config.setup({
-	ensure_installed = {
-		"ruff",
-		"ts_ls",
-		"emmet_language_server",
-		"cssls",
-		"jsonls",
-		"bashls",
-		"lua_ls",
-		"tailwindcss",
-		"dockerls",
-		"docker_compose_language_service",
-		"yamlls",
-		"pyright",
-	},
-})
+mason_lsp_config.setup({})
 
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
@@ -80,7 +65,12 @@ lspconfig.ts_ls.setup({
 	on_capabilities = capabilities,
 })
 
-lspconfig.solidity_ls.setup({})
+-- lspconfig.solidity_ls.setup({
+-- 	on_attach = function(_, bufnr)
+-- 		lsp_keymap(bufnr)
+-- 	end,
+-- 	on_capabilities = capabilities,
+-- })
 
 lspconfig.emmet_language_server.setup({
 	on_attach = function(_, bufnr)
@@ -137,7 +127,6 @@ lspconfig.pyright.setup({
 		},
 		python = {
 			analysis = {
-				-- Ignore all files for analysis to exclusively use Ruff for linting
 				ignore = { "*" },
 			},
 		},
