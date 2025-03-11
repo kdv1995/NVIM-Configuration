@@ -40,6 +40,8 @@ nvim_tree.setup({
 		preserve_window_proportions = true,
 	},
 	renderer = {
+		add_trailing = true,
+		full_name = true,
 		root_folder_modifier = ":t",
 		icons = {
 			show = {

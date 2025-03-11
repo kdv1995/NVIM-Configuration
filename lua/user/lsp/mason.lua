@@ -2,7 +2,22 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lsp_config = require("mason-lspconfig")
 mason.setup()
-mason_lsp_config.setup()
+mason_lsp_config.setup({
+	ensure_installed = {
+		"ruff",
+		"ts_ls",
+		"emmet_language_server",
+		"cssls",
+		"jsonls",
+		"bashls",
+		"lua_ls",
+		"tailwindcss",
+		"dockerls",
+		"docker_compose_language_service",
+		"yamlls",
+		"pyright",
+	},
+})
 
 local signs = {
 	{ name = "DiagnosticSignError", text = "" },
@@ -116,5 +131,21 @@ lspconfig.tailwindcss.setup({
 
 lspconfig.dockerls.setup({})
 lspconfig.docker_compose_language_service.setup({})
-
 lspconfig.yamlls.setup({})
+
+lspconfig.pyright.setup({
+	capabilities = capabilities,
+	settings = {
+		pyright = {
+			-- Using Ruff's import organizer
+			disableOrganizeImports = true,
+		},
+		python = {
+			analysis = {
+				-- Ignore all files for analysis to exclusively use Ruff for linting
+				ignore = { "*" },
+			},
+		},
+	},
+})
+lspconfig.ruff.setup({})
