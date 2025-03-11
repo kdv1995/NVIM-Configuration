@@ -80,12 +80,7 @@ lspconfig.ts_ls.setup({
 	on_capabilities = capabilities,
 })
 
-lspconfig.solidity_ls.setup({
-	on_attach = function(_, bufnr)
-		lsp_keymap(bufnr)
-	end,
-	on_capabilities = capabilities,
-})
+lspconfig.solidity_ls.setup({})
 
 lspconfig.emmet_language_server.setup({
 	on_attach = function(_, bufnr)
