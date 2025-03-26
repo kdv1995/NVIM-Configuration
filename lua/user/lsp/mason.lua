@@ -65,13 +65,6 @@ lspconfig.ts_ls.setup({
 	on_capabilities = capabilities,
 })
 
--- lspconfig.solidity_ls.setup({
--- 	on_attach = function(_, bufnr)
--- 		lsp_keymap(bufnr)
--- 	end,
--- 	on_capabilities = capabilities,
--- })
-
 lspconfig.emmet_language_server.setup({
 	on_attach = function(_, bufnr)
 		lsp_keymap(bufnr)
@@ -86,12 +79,12 @@ lspconfig.cssls.setup({
 	capabilities = capabilities,
 })
 
--- lspconfig.jsonls.setup({
--- 	on_attach = function(_, bufnr)
--- 		lsp_keymap(bufnr)
--- 	end,
--- 	capabilities = capabilities,
--- })
+lspconfig.jsonls.setup({
+	on_attach = function(_, bufnr)
+		lsp_keymap(bufnr)
+	end,
+	capabilities = capabilities,
+})
 
 lspconfig.bashls.setup({
 	on_attach = function(_, bufnr)
@@ -133,3 +126,15 @@ lspconfig.pyright.setup({
 	},
 })
 lspconfig.ruff.setup({})
+local rt = require("rust-tools")
+
+rt.setup({
+	server = {
+		on_attach = function(_, bufnr)
+			-- Hover actions
+			vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+			-- Code action groups
+			vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+		end,
+	},
+})
